@@ -21,6 +21,9 @@ APP_DIR="/app/publish"
 APP_DLL="${APP_DIR}/${APP_NAME}.dll"
 APP_EXE="${APP_DIR}/${APP_NAME}"
 
+# 切换到应用目录，确保能找到配置文件（appsettings.json 等）
+cd "$APP_DIR"
+
 # 检查应用程序文件是否存在（优先检查可执行文件，其次检查 DLL）
 if [ -f "$APP_EXE" ] && [ -x "$APP_EXE" ]; then
     # 单文件发布模式：直接运行可执行文件
